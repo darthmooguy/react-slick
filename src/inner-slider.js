@@ -106,6 +106,7 @@ export var InnerSlider = createReactClass({
   },
   componentDidUpdate: function () {
     let images = document.querySelectorAll('.slick-slide img')
+    images = Array.from(images)
     images.forEach(image => {
       if (!image.onload) {
         image.onload = () => setTimeout(() => this.update(this.props), this.props.speed)
@@ -236,7 +237,7 @@ export var InnerSlider = createReactClass({
       listProps = { className: 'slick-list' }
       innerSliderProps = { className }
     }
-    
+
     return (
       <div {...innerSliderProps} >
         { !this.props.unslick ? prevArrow : '' }
